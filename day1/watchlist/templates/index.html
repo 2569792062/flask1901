@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{name}}'s WatchList</title>
+    <title>{{user.name}}'s WatchList</title>
 </head>
 <body>
-    <h2>{{name}}'s WatchList</h2>
+    <h2>{{user.name}}'s WatchList</h2>
     <p>一共{{movies|length}}</p>
     <ul>
         {%for movie in movies%}
