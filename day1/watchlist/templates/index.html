@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{user.name}}'s WatchList</title>
-</head>
-<body>
-    <h2>{{user.name}}'s WatchList</h2>
-    <p>一共{{movies|length}}</p>
+{%extends 'base.html'%}
+{% block content %}
     <ul>
         {%for movie in movies%}
         <li>{{movie.title}}-{{movie.year}}</li>
         {%endfor%}
     </ul>
-    <footer>
+    <!-- <footer>
         <small>&copy;2020<a href="#">1901</a></small>
-    </footer>
+    </footer> -->
+{%endblock%}
 </body>
 </html>

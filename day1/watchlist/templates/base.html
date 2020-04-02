@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    {% block head %}{%endblock%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{user.name}}'s WatchList</title>
+    
+</head>
+<body>
+    <h2>{{user.name}}'s WatchList</h2>
+    <p>一共{{movies|length}}</p>
+    <nav>
+        <ul>
+            <li><a href="{{url_for('index')}}">主页</a></li>
+        </ul>
+    </nav>
+    {% block content %}{%endblock%}
+    <footer>
+        <small>&copy;2020<a href="#">1901</a></small>
+    </footer>
+</body>
+</html>

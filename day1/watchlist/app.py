@@ -39,23 +39,23 @@ class Movie(db.Model):
 
 @app.cli.command()
 def forge():
-    db.create_all()
     name='王涵'
     movies=[
-        {'title':'杀破狼','year':20},
-        {'title':'西游记','year':20},
-        {'title':'分手大师','year':20},
-        {'title':'釜山行','year':20},
-        {'title':'机器之血','year':20},
-        {'title':'扫毒2','year':20},
-        {'title':'战狼','year':20},
-        {'title':'战狼2','year':20},
-        {'title':'叶问1','year':20},
-        {'title':'叶问2','year':20},
+        {'title':'杀破狼1','year':20},
+        {'title':'西游记1','year':20},
+        {'title':'分手大师1','year':20},
+        {'title':'釜山行1','year':20},
+        {'title':'机器之血1','year':20},
+        {'title':'扫毒21','year':20},
+        {'title':'战狼1','year':20},
+        {'title':'战狼21','year':20},
+        {'title':'叶问11','year':20},
+        {'title':'叶问21','year':20},
     ]
     user = User(name=name)
     db.session.add(user)
     for m in movies:
+        print(m)
         movie = Movie(title=m['title'],year=m['year'])
         db.session.add(movie)
     db.session.commit()
@@ -64,12 +64,25 @@ def forge():
     
 @app.route('/')
 def index():
-    user = User.query.first()
+    # user = User.query.first()
     movies = Movie.query.all()
-    return render_template('index.html',user=user,movies=movies)
+    return render_template('index.html',movies=movies)
 
+#处理页面404错误
 @app.route('/index/<conn>')
 def con(conn):
     print(url_for('index',n=conn))
 
     return 'hello %s'%conn
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'),404
+
+
+
+#模板上下文处理函数,再多个模板内部需要使用的变量
+@app.context_processor
+def inject_user():
+    user = User.query.first()
+    return dict(user=user)
