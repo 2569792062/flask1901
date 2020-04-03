@@ -1,8 +1,21 @@
 {%extends 'base.html'%}
 {% block content %}
+{#表单#}
+{%for message in get_flashed_messages()%}
+{{message}}
+{%endfor%}
+<form  method="POST">
+    电影名称    <input type="text" name='title' autocomplete="off" required> 
+    电影年份    <input type="text" name='year' autocomplete="off" required>
+    <input type="submit" class='btn' name='submit' value="添加">
+</form>
     <ul>
         {%for movie in movies%}
         <li>{{movie.title}}-{{movie.year}}</li>
+        <span>
+            <a href="{{ url_for('edit',movie_id=movie.id) }}">编辑</a>
+            <a href="{{url_for('dele',movie_id=movie.id)}}">删除</a>
+        </span>
         {%endfor%}
     </ul>
     <!-- <footer>
