@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML,CSS,JavaScript,jQuery,Bootstrap购物车</title>
-    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">    
+    <title>HTMl,CSS,JavaScript,jQuery,Bootstrap购物车</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .container{
             width: 40%;
@@ -26,14 +26,13 @@
     </style>
 </head>
 <body>
-    <div class='container'>
+    <div class="container">
         <h2>我的购物车清单</h2>
         <!-- 输入框，添加按钮 -->
-        <div class='input-group'>
-            <input type="text" class='js-new-item form-control' placeholder="添加想要购买的商品">
-            <span class='input-group-btn'>
-                <button type='button' class="js-add btn btn-default">添加到购物车</button>
-            
+        <div class="input-group">
+            <input type="text" class="js-new-item form-control" placeholder="添加想要购买的商品">
+            <span class="input-group-btn">
+                <button type="button" class="js-add btn btn-default">添加到购物车</button>
             </span>
         </div>
 
@@ -54,13 +53,14 @@
                 </div>
             </li>
             <li>
-                <div class="removed">
+                <div class="checkbox">
                     <label for="">
                         <input class="js-item" type="checkbox">电脑
                     </label>
                 </div>
             </li>
         </ul>
+
         <!-- 改变标题 -->
         <div class="footer">
             <hr>
@@ -68,7 +68,6 @@
             <input type="text" value="我的购物车清单" class="js-change-title">
         </div>
     </div>
-
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script>
@@ -93,6 +92,7 @@
         function toggleRemoved(ev){
             $(ev.currentTarget).closest('li').toggleClass('removed');
         }
+
         function onChangeTitle(){
             $('h2').text($('.js-change-title').val())
         }
